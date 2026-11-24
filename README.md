@@ -1,5 +1,36 @@
 # signalk-noaa-sonar-charts
 
+> [!WARNING]
+> **This plugin is deprecated and no longer maintained.** Its three charts are now
+> part of [Charts Provider Simple](https://github.com/dirkwa/signalk-charts-provider-simple)
+> (version 2.12.0 or later), which serves them the same way: tiles are fetched from
+> NOAA as you view them and kept, so the charts keep working offline.
+
+## Moving to Charts Provider Simple
+
+1. Install **Charts Provider Simple** from the Signal K App Store, or update it to
+   2.12.0 or later.
+2. In its **Online Charts** tab, under depth and seabed, press **Add** on each chart
+   you use: **NOAA Hi-Res Relief**, **BlueTopo Relief** and **BlueTopo Depth Color**.
+   They start at the same opacities this plugin used.
+3. To hide land on the two BlueTopo charts, as this plugin did, open
+   **Manage Charts**, choose the chart, then **Meta → Edit**, and tick
+   **+Water only**. This adds a copy of the chart with the land cut away as its own
+   layer. The first time, you are asked to confirm a one-time download of coastline
+   data (about 1 GB, about 390 MB on disk).
+4. To pre-load an area before going offline, press **Offline area** on the chart
+   instead of using the `noaa-sonar-charts` command.
+5. Uninstall this plugin, so the old and new charts don't both appear in
+   Freeboard-SK. The new charts are separate layers, so turn them on and set their
+   order in Freeboard-SK again.
+6. Delete this plugin's data folder,
+   `<signalk-config>/plugin-config-data/noaa-sonar-chart-provider/`. It holds the
+   old tile caches and coastline data, which Charts Provider Simple does not use.
+
+The rest of this page describes the plugin as it was last released.
+
+---
+
 ![screenshot](https://raw.githubusercontent.com/joelkoz/signalk-noaa-sonar-charts/main/docs/screenshots/noaa-sonar-charts-screenshot.jpg)
 
 A Signal K chart provider for high resolution underwater relief charts around the eastern
